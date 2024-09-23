@@ -1,0 +1,20 @@
+services:
+  web:
+    build: 
+      context: ./webapp
+      dockerfile: 'Dockerfile'
+    ports:
+      - "80:80"
+
+  database:
+    build: 
+      context: ./database
+      dockerfile: 'Dockerfile'
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=movie123
+
+
